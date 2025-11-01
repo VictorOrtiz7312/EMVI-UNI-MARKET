@@ -1,0 +1,288 @@
+/* Variables de Color (MODO OSCURO - Basado en tu logo) */
+:root {
+    --primary-color: #FFD100;    /* Amarillo (se queda igual) */
+    --secondary-color: #222222; /* Gris oscuro (para fondos de sección) */
+    --dark-color: #1A1A1A;       /* Negro (para fondo principal) */
+    --light-color: #FFFFFF;     /* Blanco (para texto principal) */
+}
+
+/* Reseteo Básico y Fuentes */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--light-color);
+    background-color: var(--dark-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Encabezado */
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+    background-color: var(--secondary-color);
+}
+
+header .logo img {
+    height: 60px;
+    display: block; 
+    margin: 0 auto;
+}
+
+/* Sección Principal (Hero) */
+.hero {
+    padding: 80px 0;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--dark-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Marca de agua del logo en Hero --- */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-image: url('images/logo-emvi.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    opacity: 0.05;
+}
+/* --- Fin de la Marca de agua --- */
+
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: var(--light-color);
+}
+
+.hero-text p {
+    font-size: 19px;
+    margin-bottom: 30px;
+    color: #CCC;
+}
+
+/* Busca esta regla y ACTUALÍZALA */
+.hero-image {
+    flex: 1; /* Esto lo deja ocupar espacio */
+    text-align: center; /* Centra el contenido horizontalmente */
+    
+    /* ¡AÑADIR O MODIFICAR ESTAS LÍNEAS! */
+    max-width: 350px; /* Limita el ancho máximo del video (ajusta este valor) */
+    margin: 0 auto;   /* Centra el contenedor del video si ocupa menos de 100% */
+}
+
+/*
+ *
+ * ¡CAMBIO IMPORTANTE AQUÍ!
+ * Aplicamos los estilos al <video> en lugar de al <img>
+ *
+ */
+.hero-image video {
+    max-width: 100%;
+    height: auto;
+    box-shadow: none; 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+}
+
+/* Botones de Descarga */
+.download-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.btn.btn-store {
+    text-decoration: none;
+    color: var(--dark-color);
+    background-color: var(--primary-color);
+    padding: 18px 35px;
+    border-radius: 10px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn.btn-store:hover {
+    background-color: #FFEB3B;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn.btn-store i {
+    font-size: 22px;
+}
+
+/* ESTILO PARA LA ADVERTENCIA DE APK */
+.apk-warning {
+    font-size: 14px;
+    color: #AAA;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+/* Sección de Características */
+.features {
+    padding: 80px 0;
+    background-color: var(--secondary-color);
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 38px;
+    margin-bottom: 50px;
+    color: var(--light-color);
+}
+
+.feature-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+}
+
+.feature-item {
+    flex: 1;
+    padding: 30px;
+    background-color: #333;
+    border-radius: 15px;
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.feature-item i {
+    font-size: 50px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.feature-item h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--light-color);
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #CCC;
+}
+
+/* Pie de Página */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #111;
+    color: #AAA;
+    margin-top: 60px;
+}
+
+footer p {
+    font-size: 15px;
+    color: #AAA;
+}
+
+
+/* --- Adaptación para Móviles --- */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 40px;
+    }
+    
+    .hero-text p {
+        font-size: 17px;
+    }
+
+    .hero-image {
+        margin-top: 40px;
+    }
+
+    .download-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn.btn-store {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .hero::before {
+        background-size: 100%;
+        opacity: 0.03;
+    }
+
+    .features h2 {
+        font-size: 30px;
+    }
+
+    .feature-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .feature-item {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 32px;
+    }
+    
+    .btn.btn-store {
+        font-size: 15px;
+        padding: 15px 25px;
+    }
+
+    header .logo img {
+        height: 50px;
+    }
+}
