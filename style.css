@@ -94,24 +94,16 @@ header .logo img {
     color: #CCC;
 }
 
-/* Busca esta regla y ACTUALÍZALA */
+/* Ajuste del tamaño del video */
 .hero-image {
-    flex: 1; /* Esto lo deja ocupar espacio */
-    text-align: center; /* Centra el contenido horizontalmente */
-    
-    /* ¡AÑADIR O MODIFICAR ESTAS LÍNEAS! */
-    max-width: 350px; /* Limita el ancho máximo del video (ajusta este valor) */
-    margin: 0 auto;   /* Centra el contenedor del video si ocupa menos de 100% */
+    flex: 1;
+    text-align: center;
+    max-width: 350px; /* Limita el ancho del video */
+    margin: 0 auto;   /* Centra el contenedor del video */
 }
 
-/*
- *
- * ¡CAMBIO IMPORTANTE AQUÍ!
- * Aplicamos los estilos al <video> en lugar de al <img>
- *
- */
 .hero-image video {
-    max-width: 100%;
+    width: 100%; /* El video ocupa el 100% de su contenedor */
     height: auto;
     box-shadow: none; 
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -241,6 +233,7 @@ footer p {
 
     .hero-image {
         margin-top: 40px;
+        max-width: 300px; /* Hacemos el video un poco más pequeño en móviles */
     }
 
     .download-buttons {
