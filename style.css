@@ -1,12 +1,13 @@
-/* Variables de Color (MODO OSCURO - Basado en tu logo) */
+/* Variables de Color (Estilo Apple Dark Mode) */
 :root {
-    --primary-color: #FFD100;    /* Amarillo (se queda igual) */
-    --secondary-color: #222222; /* Gris oscuro (para fondos de sección) */
-    --dark-color: #1A1A1A;       /* Negro (para fondo principal) */
-    --light-color: #FFFFFF;     /* Blanco (para texto principal) */
+    --primary-color: #FFD100;    /* Amarillo (nuestro único acento) */
+    --secondary-color: #1A1A1A; /* Gris muy oscuro (para fondos de sección) */
+    --dark-color: #000000;       /* Negro Puro (fondo principal) */
+    --light-color: #FFFFFF;     /* Blanco Puro (texto principal) */
+    --gray-text: #A1A1A6;       /* Gris para texto secundario */
 }
 
-/* Reseteo Básico y Fuentes */
+/* Reseteo Básico y Fuentes del Sistema */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,267 +16,225 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.5;
     color: var(--light-color);
     background-color: var(--dark-color);
+    -webkit-font-smoothing: antialiased; /* Tipografía más suave */
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 980px; /* Ancho de contenido más controlado */
     margin: 0 auto;
     padding: 0 20px;
 }
 
 /* Encabezado */
 header {
-    padding: 20px 0;
+    padding: 15px 0;
     border-bottom: 1px solid #333;
-    background-color: var(--secondary-color);
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+    backdrop-filter: blur(10px); /* Efecto "vidrio" */
+    position: sticky; /* Encabezado fijo */
+    top: 0;
+    z-index: 100;
 }
 
 header .logo img {
-    height: 60px;
+    height: 40px; /* Logo más pequeño y elegante */
     display: block; 
     margin: 0 auto;
 }
 
 /* Sección Principal (Hero) */
 .hero {
-    padding: 80px 0;
-    min-height: 80vh;
+    padding: 100px 0 60px 0;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     background-color: var(--dark-color);
     position: relative;
     overflow: hidden;
+    text-align: center; /* Todo el texto centrado */
 }
 
 .hero-content {
     display: flex;
+    flex-direction: column; /* Apilado vertical */
     align-items: center;
-    justify-content: space-between;
     gap: 40px;
     position: relative;
     z-index: 2;
 }
 
-/* --- Marca de agua del logo en Hero --- */
+/* La marca de agua se va, Apple no usa esto */
 .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    background-image: url('images/logo-emvi.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 60%;
-    opacity: 0.05;
+    display: none;
 }
-/* --- Fin de la Marca de agua --- */
-
 
 .hero-text {
-    flex: 1;
+    max-width: 700px; /* Ancho máximo para el texto */
 }
 
 .hero-text h1 {
-    font-size: 52px;
+    font-size: 72px; /* Tipografía GRANDE */
+    font-weight: 700;
     margin-bottom: 20px;
-    line-height: 1.2;
+    line-height: 1.1;
+    letter-spacing: -0.02em; /* Ajuste de letras */
     color: var(--light-color);
 }
 
-.hero-text p {
-    font-size: 19px;
+.hero-text .subheadline {
+    font-size: 24px;
     margin-bottom: 30px;
-    color: #CCC;
+    color: var(--gray-text); /* Texto gris secundario */
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Ajuste del tamaño del video */
+/* Video (Hero Image) */
 .hero-image {
-    flex: 1;
-    text-align: center;
-    max-width: 350px; /* Limita el ancho del video */
-    margin: 0 auto;   /* Centra el contenedor del video */
+    max-width: 380px; /* Ancho de "teléfono" */
+    margin: 40px auto 0 auto; /* Espacio arriba */
 }
 
 .hero-image video {
-    width: 100%; /* El video ocupa el 100% de su contenedor */
+    width: 100%;
     height: auto;
-    box-shadow: none; 
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); /* Sombra más suave */
+    border: 1px solid #333;
+    border-radius: 40px; /* Bordes MUY redondeados */
 }
 
-/* Botones de Descarga */
+/* Botón de Descarga (Estilo Pill) */
 .download-buttons {
     display: flex;
-    gap: 20px;
-    justify-content: flex-start;
+    justify-content: center; /* Centrar el botón */
 }
 
 .btn.btn-store {
     text-decoration: none;
     color: var(--dark-color);
     background-color: var(--primary-color);
-    padding: 18px 35px;
-    border-radius: 10px;
-    font-weight: bold;
+    padding: 14px 30px;
+    border-radius: 999px; /* Forma de píldora */
+    font-weight: 600;
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     font-size: 17px;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    box-shadow: none; /* Sin sombra */
 }
 
 .btn.btn-store:hover {
     background-color: #FFEB3B;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: none; /* Sin efecto de levantar */
 }
 
 .btn.btn-store i {
-    font-size: 22px;
+    font-size: 20px;
 }
 
-/* ESTILO PARA LA ADVERTENCIA DE APK */
+/* Advertencia APK */
 .apk-warning {
     font-size: 14px;
-    color: #AAA;
-    margin-top: 20px;
+    color: var(--gray-text);
+    margin-top: 25px;
     line-height: 1.5;
 }
 
 /* Sección de Características */
 .features {
-    padding: 80px 0;
-    background-color: var(--secondary-color);
+    padding: 100px 0;
+    background-color: var(--secondary-color); /* Fondo gris oscuro */
     text-align: center;
 }
 
 .features h2 {
-    font-size: 38px;
-    margin-bottom: 50px;
-    color: var(--light-color);
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 80px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .feature-grid {
     display: flex;
-    justify-content: space-around;
-    gap: 40px;
+    flex-direction: column; /* Apilado vertical */
+    align-items: center; /* Centrado */
+    gap: 70px; /* Más espacio entre características */
 }
 
 .feature-item {
-    flex: 1;
-    padding: 30px;
-    background-color: #333;
-    border-radius: 15px;
+    max-width: 500px; /* Ancho máximo por característica */
+    background-color: transparent; /* Sin "tarjetas" */
+    border: none;
     box-shadow: none;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: none;
 }
 
 .feature-item:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.2);
+    transform: none;
 }
 
 .feature-item i {
-    font-size: 50px;
+    font-size: 48px;
     color: var(--primary-color);
     margin-bottom: 20px;
 }
 
 .feature-item h3 {
-    font-size: 24px;
+    font-size: 32px;
+    font-weight: 700;
     margin-bottom: 15px;
     color: var(--light-color);
 }
 
 .feature-item p {
-    font-size: 16px;
-    color: #CCC;
+    font-size: 19px;
+    color: var(--gray-text);
 }
 
 /* Pie de Página */
 footer {
     text-align: center;
-    padding: 40px 0;
-    background-color: #111;
-    color: #AAA;
-    margin-top: 60px;
+    padding: 60px 0;
+    background-color: var(--dark-color);
+    margin-top: 0;
 }
 
 footer p {
-    font-size: 15px;
-    color: #AAA;
+    font-size: 14px;
+    color: var(--gray-text);
 }
 
 
 /* --- Adaptación para Móviles --- */
 @media (max-width: 768px) {
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
     .hero-text h1 {
-        font-size: 40px;
+        font-size: 48px;
     }
     
-    .hero-text p {
-        font-size: 17px;
+    .hero-text .subheadline {
+        font-size: 20px;
     }
 
     .hero-image {
-        margin-top: 40px;
-        max-width: 300px; /* Hacemos el video un poco más pequeño en móviles */
-    }
-
-    .download-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn.btn-store {
-        width: 80%;
         max-width: 300px;
     }
 
-    .hero::before {
-        background-size: 100%;
-        opacity: 0.03;
-    }
-
     .features h2 {
-        font-size: 30px;
-    }
-
-    .feature-grid {
-        flex-direction: column;
-        gap: 20px;
+        font-size: 36px;
     }
     
-    .feature-item {
-        padding: 25px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-text h1 {
-        font-size: 32px;
-    }
-    
-    .btn.btn-store {
-        font-size: 15px;
-        padding: 15px 25px;
+    .feature-item h3 {
+        font-size: 28px;
     }
 
-    header .logo img {
-        height: 50px;
+    .feature-item p {
+        font-size: 17px;
     }
 }
